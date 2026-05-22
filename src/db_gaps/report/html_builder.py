@@ -33,6 +33,7 @@ LOG = get_logger("db_gaps.report")
 
 PAGES = [
     {"key": "dashboard", "label": "Dashboard", "href": "index.html"},
+    {"key": "explorer", "label": "Explorer", "href": "explorer.html"},
     {"key": "universe", "label": "Universe (188)", "href": "universe.html"},
     {"key": "backtest", "label": "Backtest", "href": "backtest.html"},
     {"key": "risk", "label": "Risk · VaR/ES/MC", "href": "risk.html"},
@@ -276,6 +277,466 @@ def page_risk(prices: pd.DataFrame, returns: pd.DataFrame, weights: pd.Series | 
     return body
 
 
+def _write_series_json(prices: pd.DataFrame, out_dir: Path) -> dict:
+    """Export per-ETF JSON files + an index for the Explorer page.
+
+    Returns a small summary dict (n_codes, n_with_data).
+    """
+    uni = load_universe().df.copy()
+    uni["code"] = uni["code"].astype(str)
+
+    series_dir = out_dir / "data" / "series"
+    series_dir.mkdir(parents=True, exist_ok=True)
+
+    n_with_data = 0
+    index_rows: list[dict] = []
+
+    for row in uni.itertuples(index=False):
+        code = str(row.code)
+        meta_row = {
+            "code": code,
+            "name": row.name,
+            "risk_type": row.risk_type,
+            "asset_class": row.asset_class,
+            "sub_category": row.sub_category,
+            "aum_eok": int(row.aum_eok) if pd.notna(row.aum_eok) else 0,
+            "start": None,
+            "end": None,
+            "n_obs": 0,
+        }
+        if code in prices.columns:
+            s = prices[code].dropna()
+            if len(s) > 0:
+                dates = s.index.strftime("%Y-%m-%d").tolist()
+                closes = [round(float(v), 4) for v in s.values]
+                payload = {"code": code, "name": row.name, "d": dates, "c": closes}
+                (series_dir / f"{code}.json").write_text(
+                    json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+                    encoding="utf-8",
+                )
+                meta_row["start"] = dates[0]
+                meta_row["end"] = dates[-1]
+                meta_row["n_obs"] = len(dates)
+                n_with_data += 1
+        index_rows.append(meta_row)
+
+    index_path = out_dir / "data" / "series_index.json"
+    index_path.write_text(
+        json.dumps(
+            {
+                "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                "n_codes": len(index_rows),
+                "n_with_data": n_with_data,
+                "series": index_rows,
+            },
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ),
+        encoding="utf-8",
+    )
+    LOG.info("Series JSON written: %d codes (%d with data) -> %s", len(index_rows), n_with_data, series_dir)
+    return {"n_codes": len(index_rows), "n_with_data": n_with_data}
+
+
+def page_explorer() -> str:
+    """Interactive FRED-style time-series explorer (client-side JS + Plotly)."""
+    # Plotly CDN is loaded here (other pages embed plotlyjs="cdn" per figure already)
+    # All UI logic is plain JS that fetches /data/series_index.json + /data/series/{code}.json
+    return r"""
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+
+<div class="card">
+  <h3>Asset Explorer</h3>
+  <p style="color:var(--muted); margin-top:-4px; font-size:13px;">
+    대분류 → 세부분류 → 종목을 골라 차트에 추가하세요. 여러 시리즈를 겹쳐서 비교할 수 있습니다 (FRED 스타일).
+  </p>
+
+  <div style="display:grid; grid-template-columns: 1.1fr 1.4fr 2fr auto; gap:10px; align-items:end; margin-top:10px;">
+    <div>
+      <label class="lbl">대분류 (asset_class)</label>
+      <select id="sel-class"></select>
+    </div>
+    <div>
+      <label class="lbl">세부분류 (sub_category)</label>
+      <select id="sel-sub"></select>
+    </div>
+    <div>
+      <label class="lbl">종목 (code · name)</label>
+      <select id="sel-code"></select>
+    </div>
+    <div>
+      <button id="btn-add" class="btn primary">＋ Add to chart</button>
+    </div>
+  </div>
+
+  <div id="info-panel" style="margin-top:14px;"></div>
+</div>
+
+<div class="card">
+  <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+    <div>
+      <strong>기간</strong>
+      <span id="range-buttons" style="margin-left:8px;">
+        <button data-range="1M" class="range">1M</button>
+        <button data-range="3M" class="range">3M</button>
+        <button data-range="6M" class="range">6M</button>
+        <button data-range="YTD" class="range">YTD</button>
+        <button data-range="1Y" class="range active">1Y</button>
+        <button data-range="3Y" class="range">3Y</button>
+        <button data-range="5Y" class="range">5Y</button>
+        <button data-range="MAX" class="range">MAX</button>
+      </span>
+      <span style="margin-left:14px;">
+        <label class="lbl-inline">From</label>
+        <input type="date" id="date-from">
+        <label class="lbl-inline">To</label>
+        <input type="date" id="date-to">
+        <button id="btn-apply-range" class="btn">Apply</button>
+      </span>
+    </div>
+    <div>
+      <label class="lbl-inline"><input type="checkbox" id="opt-rebase"> Rebase to 100</label>
+      &nbsp;
+      <label class="lbl-inline"><input type="checkbox" id="opt-log"> Log scale</label>
+    </div>
+  </div>
+
+  <div id="chart" style="height:520px; margin-top:14px;"></div>
+  <div id="series-list" style="margin-top:8px;"></div>
+</div>
+
+<style>
+  .lbl { display:block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+  .lbl-inline { color: var(--muted); font-size: 12px; margin-right: 4px; }
+  select, input[type=date] { padding:6px 8px; border:1px solid var(--line); border-radius:6px; font-size:13px; background:white; }
+  select { width: 100%; }
+  .btn { padding:7px 12px; border:1px solid var(--line); background:white; border-radius:6px; cursor:pointer; font-size:13px; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .btn.primary:hover { color: white; opacity: 0.92; }
+  .range { padding:4px 10px; border:1px solid var(--line); background:white; border-radius:14px; cursor:pointer; font-size:12px; margin-right:4px; }
+  .range.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .range:hover { border-color: var(--accent); }
+  .chip { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border:1px solid var(--line); border-radius:16px; margin:4px 6px 0 0; font-size:12px; background:#f7f9fc; }
+  .chip .swatch { width:10px; height:10px; border-radius:50%; }
+  .chip .x { cursor:pointer; color: var(--muted); margin-left:4px; }
+  .chip .x:hover { color: #c8341e; }
+  #info-panel .infogrid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
+  #info-panel .item { background:#f7f9fc; border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  #info-panel .item .k { color: var(--muted); font-size: 11px; }
+  #info-panel .item .v { font-size: 14px; font-weight: 600; }
+</style>
+
+<script>
+(function(){
+  const COLORS = ["#234bdf","#c8341e","#198042","#a06b00","#7e3ab3","#0a8a8a","#bf3475","#3a5e8c","#8c5e3a","#5e8c3a"];
+  const state = {
+    index: null,         // series_index.json content
+    cache: {},           // code -> {d:[],c:[]}
+    series: [],          // [{code,name,color}]
+    range: "1Y",         // 1M/3M/6M/YTD/1Y/3Y/5Y/MAX/CUSTOM
+    customFrom: null,
+    customTo: null,
+    rebase: false,
+    log: false,
+  };
+
+  const fmtPct = (x) => (x === null || x === undefined || Number.isNaN(x)) ? "—" : (x>=0?"+":"") + (x*100).toFixed(2) + "%";
+  const fmtNum = (x) => (x === null || x === undefined || Number.isNaN(x)) ? "—" : Number(x).toLocaleString(undefined,{maximumFractionDigits:2});
+
+  function $(id){ return document.getElementById(id); }
+
+  function init(){
+    fetch("data/series_index.json").then(r=>r.json()).then(idx => {
+      state.index = idx;
+      populateClassDropdown();
+      attachEvents();
+      // Try a sensible default selection: largest-AUM with data
+      const withData = idx.series.filter(s => s.n_obs > 0).sort((a,b)=>b.aum_eok-a.aum_eok);
+      if (withData.length){
+        const def = withData[0];
+        $("sel-class").value = def.asset_class;
+        onClassChange();
+        $("sel-sub").value = def.sub_category;
+        onSubChange();
+        $("sel-code").value = def.code;
+        addSeries(def.code);
+      } else {
+        renderInfoPanel(null);
+        renderChart();
+      }
+    }).catch(err => {
+      $("chart").innerHTML = "<div style='padding:30px;color:#c8341e;text-align:center;'>" +
+        "데이터가 아직 없습니다. <code>scripts/fetch_daily.py</code> 실행 후 다시 빌드하세요.<br><small>"+err+"</small></div>";
+    });
+  }
+
+  function populateClassDropdown(){
+    const classes = [...new Set(state.index.series.map(s=>s.asset_class))].sort();
+    const sel = $("sel-class");
+    sel.innerHTML = classes.map(c=>`<option value="${c}">${c}</option>`).join("");
+    onClassChange();
+  }
+
+  function onClassChange(){
+    const cls = $("sel-class").value;
+    const subs = [...new Set(state.index.series.filter(s=>s.asset_class===cls).map(s=>s.sub_category))].sort();
+    const sel = $("sel-sub");
+    sel.innerHTML = subs.map(c=>`<option value="${c}">${c}</option>`).join("");
+    onSubChange();
+  }
+
+  function onSubChange(){
+    const cls = $("sel-class").value;
+    const sub = $("sel-sub").value;
+    const codes = state.index.series.filter(s=>s.asset_class===cls && s.sub_category===sub)
+      .sort((a,b)=>b.aum_eok-a.aum_eok);
+    const sel = $("sel-code");
+    sel.innerHTML = codes.map(s=>{
+      const tag = s.n_obs > 0 ? "" : " ⚠️ no data";
+      return `<option value="${s.code}">${s.code} · ${s.name} (AUM ${s.aum_eok.toLocaleString()}억)${tag}</option>`;
+    }).join("");
+    onCodeChange();
+  }
+
+  function onCodeChange(){
+    const code = $("sel-code").value;
+    if(!code){ renderInfoPanel(null); return; }
+    const meta = state.index.series.find(s=>s.code===code);
+    if (meta.n_obs > 0) {
+      loadCode(code).then(()=>renderInfoPanel(code));
+    } else {
+      renderInfoPanel(code);
+    }
+  }
+
+  function loadCode(code){
+    if (state.cache[code]) return Promise.resolve(state.cache[code]);
+    return fetch(`data/series/${code}.json`).then(r=>r.json()).then(j=>{ state.cache[code]=j; return j; });
+  }
+
+  function addSeries(code){
+    if (state.series.find(s=>s.code===code)) return;  // dedupe
+    if (state.series.length >= COLORS.length){ alert("최대 "+COLORS.length+"개 시리즈까지 비교할 수 있어요."); return; }
+    const meta = state.index.series.find(s=>s.code===code);
+    if (!meta || meta.n_obs === 0) { alert("이 종목은 아직 데이터가 없습니다."); return; }
+    const color = COLORS[state.series.length];
+    state.series.push({code, name: meta.name, color});
+    loadCode(code).then(()=>{ renderChart(); renderSeriesList(); });
+  }
+
+  function removeSeries(code){
+    state.series = state.series.filter(s=>s.code!==code);
+    // re-color
+    state.series.forEach((s,i)=>{ s.color = COLORS[i]; });
+    renderChart();
+    renderSeriesList();
+  }
+
+  function rangeBounds(){
+    if (state.range === "CUSTOM" && state.customFrom && state.customTo){
+      return [state.customFrom, state.customTo];
+    }
+    // Compute relative to the latest date across loaded series (or today)
+    let latest = new Date();
+    state.series.forEach(s=>{
+      const d = state.cache[s.code];
+      if (d && d.d.length){
+        const lastD = new Date(d.d[d.d.length-1]);
+        if (lastD > latest) latest = lastD;
+      }
+    });
+    const days = {"1M":30,"3M":91,"6M":182,"1Y":365,"3Y":365*3,"5Y":365*5};
+    let from;
+    if (state.range === "YTD"){
+      from = new Date(latest.getFullYear(),0,1);
+    } else if (state.range === "MAX"){
+      from = new Date(1970,0,1);
+    } else {
+      const d = days[state.range] || 365;
+      from = new Date(latest.getTime() - d*86400000);
+    }
+    const to = latest;
+    const iso = (x)=>x.toISOString().slice(0,10);
+    return [iso(from), iso(to)];
+  }
+
+  function sliceSeries(d, c, fromIso, toIso){
+    let i0=0, i1=d.length-1;
+    while (i0 < d.length && d[i0] < fromIso) i0++;
+    while (i1 >= 0 && d[i1] > toIso) i1--;
+    if (i0 > i1) return {d:[],c:[]};
+    return {d: d.slice(i0, i1+1), c: c.slice(i0, i1+1)};
+  }
+
+  function renderChart(){
+    const [fromIso, toIso] = rangeBounds();
+    const traces = state.series.map(s=>{
+      const raw = state.cache[s.code];
+      if (!raw) return null;
+      const sl = sliceSeries(raw.d, raw.c, fromIso, toIso);
+      let y = sl.c;
+      if (state.rebase && y.length){
+        const base = y[0];
+        y = y.map(v => v / base * 100);
+      }
+      return {
+        type:"scattergl", mode:"lines", name: s.code+" "+s.name,
+        x: sl.d, y, line:{color: s.color, width: 1.6}
+      };
+    }).filter(Boolean);
+    const layout = {
+      margin:{l:54,r:18,t:18,b:38},
+      xaxis:{ range:[fromIso,toIso], showgrid:true },
+      yaxis:{ title: state.rebase ? "Rebased = 100" : "Price (KRW)", type: state.log ? "log" : "linear" },
+      hovermode: "x unified",
+      legend: {orientation:"h", y:-0.2},
+      paper_bgcolor:"white",
+    };
+    Plotly.react("chart", traces, layout, {responsive:true, displaylogo:false});
+  }
+
+  function renderSeriesList(){
+    const el = $("series-list");
+    if (!state.series.length){ el.innerHTML = "<span style='color:var(--muted); font-size:12px;'>선택된 시리즈가 없습니다.</span>"; return; }
+    el.innerHTML = state.series.map(s=>`
+      <span class="chip">
+        <span class="swatch" style="background:${s.color}"></span>
+        <span>${s.code} · ${s.name}</span>
+        <span class="x" data-code="${s.code}">✕</span>
+      </span>`).join("");
+    el.querySelectorAll(".x").forEach(x=>{
+      x.addEventListener("click", ()=>removeSeries(x.dataset.code));
+    });
+  }
+
+  function returnsFor(d, c){
+    if (!d || !d.length) return {};
+    const last = c[c.length-1];
+    const latestDate = new Date(d[d.length-1]);
+    const findBack = (days)=>{
+      const target = new Date(latestDate.getTime() - days*86400000).toISOString().slice(0,10);
+      // find first idx >= target
+      let lo=0,hi=d.length-1,ans=-1;
+      while(lo<=hi){const m=(lo+hi)>>1; if (d[m]>=target){ans=m;hi=m-1;} else lo=m+1;}
+      return ans>=0 ? c[ans] : null;
+    };
+    const ytdTarget = new Date(latestDate.getFullYear(),0,1).toISOString().slice(0,10);
+    let ytdBase = null;
+    for (let i=0;i<d.length;i++){ if (d[i] >= ytdTarget){ ytdBase = c[i]; break; } }
+    const r = (base) => (base===null||base===undefined||base===0) ? null : (last/base - 1);
+    return {
+      last,
+      "1D": r(findBack(1)),
+      "1W": r(findBack(7)),
+      "1M": r(findBack(30)),
+      "3M": r(findBack(91)),
+      "6M": r(findBack(182)),
+      "YTD": r(ytdBase),
+      "1Y": r(findBack(365)),
+      "3Y": r(findBack(365*3)),
+    };
+  }
+
+  function annualizedVol(c){
+    if (c.length < 21) return null;
+    let mean=0; const rets=[];
+    for(let i=1;i<c.length;i++){ const r = Math.log(c[i]/c[i-1]); rets.push(r); mean+=r; }
+    mean /= rets.length;
+    let s=0; for (const r of rets) s += (r-mean)*(r-mean);
+    return Math.sqrt(s/(rets.length-1)) * Math.sqrt(252);
+  }
+
+  function maxDD(c){
+    if (!c.length) return null;
+    let peak = c[0], maxdd = 0;
+    for (const v of c){ if (v>peak) peak=v; const dd = v/peak - 1; if (dd<maxdd) maxdd=dd; }
+    return maxdd;
+  }
+
+  function renderInfoPanel(code){
+    const el = $("info-panel");
+    if (!code){ el.innerHTML = ""; return; }
+    const meta = state.index.series.find(s=>s.code===code);
+    if (!meta){ el.innerHTML = ""; return; }
+    const data = state.cache[code];
+    let returnsHtml = "";
+    let extra = "";
+    if (data){
+      const r = returnsFor(data.d, data.c);
+      // For vol/MDD use last 1Y
+      const [fIso, tIso] = (function(){
+        const last = new Date(data.d[data.d.length-1]);
+        const from = new Date(last.getTime() - 365*86400000).toISOString().slice(0,10);
+        return [from, data.d[data.d.length-1]];
+      })();
+      const sl = sliceSeries(data.d, data.c, fIso, tIso);
+      const vol = annualizedVol(sl.c);
+      const mdd = maxDD(sl.c);
+      const items = [
+        ["Last price", fmtNum(r.last)],
+        ["1D", fmtPct(r["1D"])], ["1W", fmtPct(r["1W"])],
+        ["1M", fmtPct(r["1M"])], ["3M", fmtPct(r["3M"])],
+        ["6M", fmtPct(r["6M"])], ["YTD", fmtPct(r.YTD)],
+        ["1Y", fmtPct(r["1Y"])], ["3Y", fmtPct(r["3Y"])],
+        ["Vol (1Y)", fmtPct(vol)], ["Max DD (1Y)", fmtPct(mdd)],
+      ];
+      returnsHtml = "<div class='infogrid'>" + items.map(([k,v])=>{
+        const cls = (typeof v === "string" && v.startsWith("+")) ? "pos" : (typeof v === "string" && v.startsWith("-")) ? "neg" : "";
+        return `<div class="item"><div class="k">${k}</div><div class="v ${cls}">${v}</div></div>`;
+      }).join("") + "</div>";
+      extra = `<div style='color:var(--muted); font-size:12px; margin-top:6px;'>데이터 기간: ${meta.start} ~ ${meta.end} (${meta.n_obs}일)</div>`;
+    } else if (meta.n_obs === 0) {
+      extra = "<div style='color:#c8341e; font-size:12px; margin-top:6px;'>이 종목은 아직 데이터가 없습니다.</div>";
+    }
+    el.innerHTML = `
+      <div style='display:flex; justify-content:space-between; align-items:baseline; gap:10px;'>
+        <div>
+          <strong style='font-size:16px;'>${meta.code} · ${meta.name}</strong>
+          <span style='color:var(--muted); font-size:12px; margin-left:8px;'>
+            ${meta.risk_type} · ${meta.asset_class} · ${meta.sub_category} · AUM ${meta.aum_eok.toLocaleString()}억
+          </span>
+        </div>
+      </div>
+      ${returnsHtml}
+      ${extra}
+    `;
+  }
+
+  function attachEvents(){
+    $("sel-class").addEventListener("change", onClassChange);
+    $("sel-sub").addEventListener("change", onSubChange);
+    $("sel-code").addEventListener("change", onCodeChange);
+    $("btn-add").addEventListener("click", ()=> {
+      const code = $("sel-code").value;
+      if (code) addSeries(code);
+    });
+    document.querySelectorAll("#range-buttons .range").forEach(b=>{
+      b.addEventListener("click", ()=>{
+        document.querySelectorAll("#range-buttons .range").forEach(x=>x.classList.remove("active"));
+        b.classList.add("active");
+        state.range = b.dataset.range;
+        state.customFrom = state.customTo = null;
+        renderChart();
+      });
+    });
+    $("btn-apply-range").addEventListener("click", ()=>{
+      const f = $("date-from").value, t = $("date-to").value;
+      if (!f || !t || f > t){ alert("From/To 날짜를 확인하세요."); return; }
+      state.range = "CUSTOM"; state.customFrom = f; state.customTo = t;
+      document.querySelectorAll("#range-buttons .range").forEach(x=>x.classList.remove("active"));
+      renderChart();
+    });
+    $("opt-rebase").addEventListener("change", e=>{ state.rebase = e.target.checked; renderChart(); });
+    $("opt-log").addEventListener("change", e=>{ state.log = e.target.checked; renderChart(); });
+  }
+
+  init();
+})();
+</script>
+"""
+
+
 def page_portfolio(prices: pd.DataFrame, weights: pd.Series | None) -> str:
     uni = load_universe().df.set_index("code")
     if weights is None or weights.sum() == 0:
@@ -323,9 +784,13 @@ def build_site(
         active = settings.get("strategies", {}).get("active") or []
         strategies = active if active else available_strategies()
 
+    # Write per-series JSON for the Explorer page
+    _write_series_json(prices, out)
+
     # Pages
     pages = {
         "dashboard": ("Dashboard", page_dashboard(prices, returns)),
+        "explorer": ("Explorer", page_explorer()),
         "universe": ("Universe", page_universe()),
         "backtest": ("Backtest", page_backtest(prices, strategies)),
         "risk": ("Risk", page_risk(prices, returns, current_weights)),
@@ -334,6 +799,7 @@ def build_site(
 
     file_map = {
         "dashboard": "index.html",
+        "explorer": "explorer.html",
         "universe": "universe.html",
         "backtest": "backtest.html",
         "risk": "risk.html",
