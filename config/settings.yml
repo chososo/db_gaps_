@@ -69,7 +69,8 @@ report:
 
 strategies:
   # 활성화된 전략 목록 (전략 확정 시 추가)
-  active: []
+  active:
+    - dummy_6040
   # 모든 전략 공통 제약
   constraints:
     max_weight_per_asset: 0.20
