@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project - keep data/ structure but ignore large raw payloads by default
+# (commit only metadata + processed snapshots)
+# 데이터는 일단 커밋되도록 둠. 너무 커지면 아래 라인 활성화.
+# data/raw/*.parquet
+# data/processed/*.parquet
+
+# 임시 로그
+*.log

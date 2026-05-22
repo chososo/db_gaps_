@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Universe · GAPS</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root { --ink:#1a1f2c; --muted:#637085; --line:#e7eaf0; --bg:#fafbfd; --accent:#234bdf; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+         color: var(--ink); background: var(--bg); margin: 0; }
+  header { background: white; border-bottom: 1px solid var(--line); padding: 14px 22px; position: sticky; top:0; z-index:10; }
+  header h1 { font-size: 16px; margin: 0; }
+  header .subtitle { color: var(--muted); font-size: 12px; }
+  nav { background: white; border-bottom: 1px solid var(--line); padding: 0 22px; }
+  nav a { display: inline-block; padding: 10px 14px; color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent; font-size: 14px;}
+  nav a.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  nav a:hover { color: var(--accent); }
+  main { max-width: 1200px; margin: 24px auto; padding: 0 22px; }
+  h2 { font-size: 18px; margin-top: 30px; }
+  h3 { font-size: 15px; margin-top: 22px; color: var(--ink); }
+  .card { background: white; border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin: 14px 0;}
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .kpi { background: white; border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .kpi .label { color: var(--muted); font-size: 12px; }
+  .kpi .value { font-size: 22px; font-weight: 700; margin-top: 4px;}
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #f4f6fa; color: var(--muted); font-weight: 600; }
+  tr:hover { background: #fafbfd; }
+  .neg { color: #c8341e; } .pos { color: #198042; }
+  footer { color: var(--muted); font-size: 12px; text-align: center; padding: 28px 0; }
+  code { background: #f0f2f7; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>GAPS Asset Allocation Dashboard</h1>
+  <div class="subtitle">2026-06 ~ 2026-09 운용 · 데이터 기준 2026-05-22 16:12</div>
+</header>
+<nav>
+  
+    <a href="index.html" class="">Dashboard</a>
+  
+    <a href="universe.html" class="active">Universe (188)</a>
+  
+    <a href="backtest.html" class="">Backtest</a>
+  
+    <a href="risk.html" class="">Risk · VaR/ES/MC</a>
+  
+    <a href="portfolio.html" class="">Portfolio Follow-up</a>
+  
+</nav>
+<main>
+<div class='card'><h3>188 ETF Universe</h3><table class="dataframe data">
+  <thead>
+    <tr style="text-align: right;">
+      <th>code</th>
+      <th>name</th>
+      <th>risk_type</th>
+      <th>asset_class</th>
+      <th>sub_category</th>
+      <th>aum_eok</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>411060</td>
+      <td>ACE KRX금현물</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>gold</td>
+      <td>52,303</td>
+    </tr>
+    <tr>
+      <td>144600</td>
+      <td>KODEX 은선물(H)</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>silver</td>
+      <td>14,590</td>
+    </tr>
+    <tr>
+      <td>132030</td>
+      <td>KODEX 골드선물(H)</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>gold</td>
+      <td>4,821</td>
+    </tr>
+    <tr>
+      <td>261220</td>
+      <td>KODEX WTI원유선물(H)</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>oil</td>
+      <td>1,428</td>
+    </tr>
+    <tr>
+      <td>261240</td>
+      <td>KODEX 미국달러선물</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>usd</td>
+      <td>724</td>
+    </tr>
+    <tr>
+      <td>292560</td>
+      <td>TIGER 일본엔선물</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>jpy</td>
+      <td>542</td>
+    </tr>
+    <tr>
+      <td>271060</td>
+      <td>KODEX 3대농산물선물(H)</td>
+      <td>risk</td>
+      <td>fx_commodity</td>
+      <td>agri</td>
+      <td>252</td>
+    </tr>
+    <tr>
+      <td>360750</td>
+      <td>TIGER 미국S&amp;P500</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500</td>
+      <td>147,821</td>
+    </tr>
+    <tr>
+      <td>379800</td>
+      <td>KODEX 미국S&amp;P500</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500</td>
+      <td>81,089</td>
+    </tr>
+    <tr>
+      <td>133690</td>
+      <td>TIGER 미국나스닥100</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_nasdaq</td>
+      <td>79,730</td>
+    </tr>
+    <tr>
+      <td>379810</td>
+      <td>KODEX 미국나스닥100</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_nasdaq</td>
+      <td>55,319</td>
+    </tr>
+    <tr>
+      <td>381180</td>
+      <td>TIGER 미국필라델피아반도체나스닥</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_semi</td>
+      <td>34,100</td>
+    </tr>
+    <tr>
+      <td>360200</td>
+      <td>ACE 미국S&amp;P500</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500</td>
+      <td>33,475</td>
+    </tr>
+    <tr>
+      <td>367380</td>
+      <td>ACE 미국나스닥100</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_nasdaq</td>
+      <td>27,323</td>
+    </tr>
+    <tr>
+      <td>379780</td>
+      <td>RISE 미국S&amp;P500</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500</td>
+      <td>14,147</td>
+    </tr>
+    <tr>
+      <td>371160</td>
+      <td>TIGER 차이나항셍테크</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_tech</td>
+      <td>9,134</td>
+    </tr>
+    <tr>
+      <td>449180</td>
+      <td>KODEX 미국S&amp;P500(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500_h</td>
+      <td>6,946</td>
+    </tr>
+    <tr>
+      <td>251350</td>
+      <td>KODEX 선진국MSCI World</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>dm_world</td>
+      <td>4,913</td>
+    </tr>
+    <tr>
+      <td>448290</td>
+      <td>TIGER 미국S&amp;P500TR(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500_h</td>
+      <td>4,371</td>
+    </tr>
+    <tr>
+      <td>241180</td>
+      <td>TIGER 일본니케이225</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>japan</td>
+      <td>4,279</td>
+    </tr>
+    <tr>
+      <td>453810</td>
+      <td>KODEX 인도Nifty50</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>india</td>
+      <td>4,103</td>
+    </tr>
+    <tr>
+      <td>453870</td>
+      <td>TIGER 인도니프티50</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>india</td>
+      <td>3,951</td>
+    </tr>
+    <tr>
+      <td>245710</td>
+      <td>ACE 베트남VN30(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>vietnam</td>
+      <td>3,155</td>
+    </tr>
+    <tr>
+      <td>448300</td>
+      <td>TIGER 미국나스닥100TR(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_nasdaq_h</td>
+      <td>2,963</td>
+    </tr>
+    <tr>
+      <td>283580</td>
+      <td>KODEX 차이나CSI300</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china</td>
+      <td>2,825</td>
+    </tr>
+    <tr>
+      <td>200250</td>
+      <td>KIWOOM 인도Nifty50(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>india</td>
+      <td>2,215</td>
+    </tr>
+    <tr>
+      <td>414780</td>
+      <td>TIGER 차이나과창판STAR50(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_tech</td>
+      <td>2,068</td>
+    </tr>
+    <tr>
+      <td>372330</td>
+      <td>KODEX 차이나항셍테크</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_tech</td>
+      <td>1,627</td>
+    </tr>
+    <tr>
+      <td>192090</td>
+      <td>TIGER 차이나CSI300</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china</td>
+      <td>1,575</td>
+    </tr>
+    <tr>
+      <td>219480</td>
+      <td>KODEX 미국S&amp;P500선물(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500_h</td>
+      <td>1,437</td>
+    </tr>
+    <tr>
+      <td>245340</td>
+      <td>TIGER 미국다우존스30</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_dow</td>
+      <td>1,412</td>
+    </tr>
+    <tr>
+      <td>168580</td>
+      <td>ACE 중국본토CSI300</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china</td>
+      <td>1,301</td>
+    </tr>
+    <tr>
+      <td>488500</td>
+      <td>TIGER 미국S&amp;P500동일가중</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500_ew</td>
+      <td>1,293</td>
+    </tr>
+    <tr>
+      <td>304940</td>
+      <td>KODEX 미국나스닥100선물(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_nasdaq_h</td>
+      <td>1,056</td>
+    </tr>
+    <tr>
+      <td>143850</td>
+      <td>TIGER 미국S&amp;P500선물(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500_h</td>
+      <td>982</td>
+    </tr>
+    <tr>
+      <td>195980</td>
+      <td>PLUS 신흥국MSCI(합성 H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>em</td>
+      <td>920</td>
+    </tr>
+    <tr>
+      <td>101280</td>
+      <td>KODEX 일본TOPIX100</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>japan</td>
+      <td>624</td>
+    </tr>
+    <tr>
+      <td>099140</td>
+      <td>KODEX 차이나H</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_h</td>
+      <td>437</td>
+    </tr>
+    <tr>
+      <td>245360</td>
+      <td>TIGER 차이나HSCEI</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_h</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>238720</td>
+      <td>ACE 일본Nikkei225(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>japan_h</td>
+      <td>359</td>
+    </tr>
+    <tr>
+      <td>195930</td>
+      <td>TIGER 유로스탁스50(합성 H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>europe_h</td>
+      <td>354</td>
+    </tr>
+    <tr>
+      <td>256440</td>
+      <td>ACE 인도네시아MSCI(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>indonesia</td>
+      <td>345</td>
+    </tr>
+    <tr>
+      <td>280930</td>
+      <td>KODEX 미국러셀2000(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_smallcap_h</td>
+      <td>326</td>
+    </tr>
+    <tr>
+      <td>195970</td>
+      <td>PLUS 선진국MSCI(합성 H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>dm_world_h</td>
+      <td>244</td>
+    </tr>
+    <tr>
+      <td>250730</td>
+      <td>RISE 차이나HSCEI(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_h</td>
+      <td>172</td>
+    </tr>
+    <tr>
+      <td>291130</td>
+      <td>ACE 멕시코MSCI(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>mexico</td>
+      <td>171</td>
+    </tr>
+    <tr>
+      <td>195920</td>
+      <td>TIGER 일본TOPIX(합성 H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>japan_h</td>
+      <td>159</td>
+    </tr>
+    <tr>
+      <td>310080</td>
+      <td>RISE 중국MSCI China(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>china_h</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <td>105010</td>
+      <td>TIGER 라틴35</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>latam</td>
+      <td>113</td>
+    </tr>
+    <tr>
+      <td>379790</td>
+      <td>RISE 유로스탁스50(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>europe_h</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <td>411860</td>
+      <td>KIWOOM 독일DAX</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>germany</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <td>499150</td>
+      <td>SOL 미국S&amp;P500엔화노출(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>us_sp500_jpy_h</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>189400</td>
+      <td>PLUS 글로벌MSCI(합성 H)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>global_h</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>261920</td>
+      <td>ACE 필리핀MSCI(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_index</td>
+      <td>philippines</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>381170</td>
+      <td>TIGER 미국테크TOP10 INDXX</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_tech</td>
+      <td>38,009</td>
+    </tr>
+    <tr>
+      <td>458730</td>
+      <td>TIGER 미국배당다우존스</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend</td>
+      <td>30,379</td>
+    </tr>
+    <tr>
+      <td>487230</td>
+      <td>KODEX 미국AI전력핵심인프라</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_ai_power</td>
+      <td>13,631</td>
+    </tr>
+    <tr>
+      <td>371460</td>
+      <td>TIGER 차이나전기차SOLACTIVE</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>china_ev</td>
+      <td>13,027</td>
+    </tr>
+    <tr>
+      <td>457480</td>
+      <td>ACE 테슬라밸류체인액티브</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_tsla</td>
+      <td>11,487</td>
+    </tr>
+    <tr>
+      <td>456600</td>
+      <td>TIMEFOLIO 글로벌AI인공지능액티브</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>global_ai</td>
+      <td>10,744</td>
+    </tr>
+    <tr>
+      <td>465580</td>
+      <td>ACE 미국빅테크TOP7 Plus</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_bigtech</td>
+      <td>9,716</td>
+    </tr>
+    <tr>
+      <td>446770</td>
+      <td>ACE 글로벌반도체TOP4 Plus</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>global_semi</td>
+      <td>9,671</td>
+    </tr>
+    <tr>
+      <td>446720</td>
+      <td>SOL 미국배당다우존스</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend</td>
+      <td>9,140</td>
+    </tr>
+    <tr>
+      <td>497570</td>
+      <td>TIGER 미국필라델피아AI반도체나스닥</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_ai_semi</td>
+      <td>8,188</td>
+    </tr>
+    <tr>
+      <td>402970</td>
+      <td>ACE 미국배당다우존스</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend</td>
+      <td>7,817</td>
+    </tr>
+    <tr>
+      <td>390390</td>
+      <td>KODEX 미국반도체</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_semi</td>
+      <td>7,809</td>
+    </tr>
+    <tr>
+      <td>452360</td>
+      <td>SOL 미국배당다우존스(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend_h</td>
+      <td>2,026</td>
+    </tr>
+    <tr>
+      <td>182480</td>
+      <td>TIGER 미국MSCI리츠(합성 H)</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_reit_h</td>
+      <td>1,666</td>
+    </tr>
+    <tr>
+      <td>429000</td>
+      <td>TIGER 미국S&amp;P500배당귀족</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend</td>
+      <td>1,556</td>
+    </tr>
+    <tr>
+      <td>463680</td>
+      <td>KODEX 미국S&amp;P500테크놀로지</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_tech</td>
+      <td>648</td>
+    </tr>
+    <tr>
+      <td>453640</td>
+      <td>KODEX 미국S&amp;P500헬스케어</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_health</td>
+      <td>643</td>
+    </tr>
+    <tr>
+      <td>200030</td>
+      <td>KODEX 미국S&amp;P500산업재(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_industrial</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <td>453650</td>
+      <td>KODEX 미국S&amp;P500금융</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_financial</td>
+      <td>435</td>
+    </tr>
+    <tr>
+      <td>218420</td>
+      <td>KODEX 미국S&amp;P500에너지(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_energy</td>
+      <td>410</td>
+    </tr>
+    <tr>
+      <td>352560</td>
+      <td>KODEX 미국부동산리츠(H)</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_reit_h</td>
+      <td>332</td>
+    </tr>
+    <tr>
+      <td>493420</td>
+      <td>SOL 미국배당다우존스TR</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend</td>
+      <td>325</td>
+    </tr>
+    <tr>
+      <td>287180</td>
+      <td>PLUS 미국나스닥테크</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_tech</td>
+      <td>316</td>
+    </tr>
+    <tr>
+      <td>245350</td>
+      <td>TIGER 유로스탁스배당30</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>europe_dividend</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <td>494410</td>
+      <td>PLUS 미국S&amp;P500성장주</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_growth</td>
+      <td>287</td>
+    </tr>
+    <tr>
+      <td>460660</td>
+      <td>RISE 미국S&amp;P배당킹</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_dividend</td>
+      <td>245</td>
+    </tr>
+    <tr>
+      <td>185680</td>
+      <td>KODEX 미국S&amp;P바이오(합성)</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_bio</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>453630</td>
+      <td>KODEX 미국S&amp;P500필수소비재</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_staples</td>
+      <td>176</td>
+    </tr>
+    <tr>
+      <td>463640</td>
+      <td>KODEX 미국S&amp;P500유틸리티</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_utilities</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <td>453660</td>
+      <td>KODEX 미국S&amp;P500경기소비재</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_discretionary</td>
+      <td>139</td>
+    </tr>
+    <tr>
+      <td>463690</td>
+      <td>KODEX 미국S&amp;P500커뮤니케이션</td>
+      <td>risk</td>
+      <td>foreign_equity_sector</td>
+      <td>us_sector_comm</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <td>069500</td>
+      <td>KODEX 200</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200</td>
+      <td>164,803</td>
+    </tr>
+    <tr>
+      <td>229200</td>
+      <td>KODEX 코스닥150</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kosdaq150</td>
+      <td>71,839</td>
+    </tr>
+    <tr>
+      <td>102110</td>
+      <td>TIGER 200</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200</td>
+      <td>67,897</td>
+    </tr>
+    <tr>
+      <td>278530</td>
+      <td>KODEX 200TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200_tr</td>
+      <td>52,559</td>
+    </tr>
+    <tr>
+      <td>310970</td>
+      <td>TIGER MSCI Korea TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>msci_korea_tr</td>
+      <td>39,380</td>
+    </tr>
+    <tr>
+      <td>148020</td>
+      <td>RISE 200</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200</td>
+      <td>29,007</td>
+    </tr>
+    <tr>
+      <td>232080</td>
+      <td>TIGER 코스닥150</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kosdaq150</td>
+      <td>22,098</td>
+    </tr>
+    <tr>
+      <td>278540</td>
+      <td>KODEX MSCI Korea TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>msci_korea_tr</td>
+      <td>21,216</td>
+    </tr>
+    <tr>
+      <td>294400</td>
+      <td>KIWOOM 200TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200_tr</td>
+      <td>15,375</td>
+    </tr>
+    <tr>
+      <td>152100</td>
+      <td>PLUS 200</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200</td>
+      <td>13,051</td>
+    </tr>
+    <tr>
+      <td>226490</td>
+      <td>KODEX 코스피</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi</td>
+      <td>7,939</td>
+    </tr>
+    <tr>
+      <td>361580</td>
+      <td>RISE 200TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200_tr</td>
+      <td>3,842</td>
+    </tr>
+    <tr>
+      <td>277630</td>
+      <td>TIGER 코스피</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi</td>
+      <td>3,810</td>
+    </tr>
+    <tr>
+      <td>295040</td>
+      <td>SOL 200TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi200_tr</td>
+      <td>3,540</td>
+    </tr>
+    <tr>
+      <td>302450</td>
+      <td>RISE 코스피</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi</td>
+      <td>3,310</td>
+    </tr>
+    <tr>
+      <td>328370</td>
+      <td>PLUS 코스피TR</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>kospi_tr</td>
+      <td>1,070</td>
+    </tr>
+    <tr>
+      <td>156080</td>
+      <td>KODEX MSCI Korea</td>
+      <td>risk</td>
+      <td>domestic_equity_index</td>
+      <td>msci_korea</td>
+      <td>294</td>
+    </tr>
+    <tr>
+      <td>091160</td>
+      <td>KODEX 반도체</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_semi</td>
+      <td>36,019</td>
+    </tr>
+    <tr>
+      <td>161510</td>
+      <td>PLUS 고배당주</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_dividend</td>
+      <td>23,624</td>
+    </tr>
+    <tr>
+      <td>102780</td>
+      <td>KODEX 삼성그룹</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_samsung</td>
+      <td>23,508</td>
+    </tr>
+    <tr>
+      <td>395160</td>
+      <td>KODEX AI반도체</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_ai_semi</td>
+      <td>20,947</td>
+    </tr>
+    <tr>
+      <td>466920</td>
+      <td>SOL 조선TOP3플러스</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_shipbuild</td>
+      <td>18,733</td>
+    </tr>
+    <tr>
+      <td>305720</td>
+      <td>KODEX 2차전지산업</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_battery</td>
+      <td>18,187</td>
+    </tr>
+    <tr>
+      <td>449450</td>
+      <td>PLUS K방산</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_defense</td>
+      <td>17,803</td>
+    </tr>
+    <tr>
+      <td>487240</td>
+      <td>KODEX AI전력핵심설비</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_ai_power</td>
+      <td>15,914</td>
+    </tr>
+    <tr>
+      <td>395270</td>
+      <td>HANARO Fn K-반도체</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_semi</td>
+      <td>14,664</td>
+    </tr>
+    <tr>
+      <td>315930</td>
+      <td>KODEX Top5PlusTR</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_top5</td>
+      <td>13,675</td>
+    </tr>
+    <tr>
+      <td>305540</td>
+      <td>TIGER 2차전지테마</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_battery</td>
+      <td>11,376</td>
+    </tr>
+    <tr>
+      <td>494670</td>
+      <td>TIGER 조선TOP10</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_shipbuild</td>
+      <td>9,938</td>
+    </tr>
+    <tr>
+      <td>445290</td>
+      <td>KODEX 로봇액티브</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_robot</td>
+      <td>9,793</td>
+    </tr>
+    <tr>
+      <td>455850</td>
+      <td>SOL AI반도체소부장</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_ai_semi</td>
+      <td>9,687</td>
+    </tr>
+    <tr>
+      <td>466940</td>
+      <td>TIGER 은행고배당플러스TOP10</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_bank</td>
+      <td>9,364</td>
+    </tr>
+    <tr>
+      <td>463250</td>
+      <td>TIGER K방산&amp;우주</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_defense_space</td>
+      <td>8,830</td>
+    </tr>
+    <tr>
+      <td>139260</td>
+      <td>TIGER 200 IT</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_it</td>
+      <td>8,199</td>
+    </tr>
+    <tr>
+      <td>462010</td>
+      <td>TIGER 2차전지소재Fn</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_battery</td>
+      <td>7,840</td>
+    </tr>
+    <tr>
+      <td>434730</td>
+      <td>HANARO 원자력iSelect</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_nuclear</td>
+      <td>7,364</td>
+    </tr>
+    <tr>
+      <td>091180</td>
+      <td>KODEX 자동차</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_auto</td>
+      <td>5,224</td>
+    </tr>
+    <tr>
+      <td>091170</td>
+      <td>KODEX 은행</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_bank</td>
+      <td>4,569</td>
+    </tr>
+    <tr>
+      <td>139230</td>
+      <td>TIGER 200 중공업</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_heavy</td>
+      <td>3,928</td>
+    </tr>
+    <tr>
+      <td>325010</td>
+      <td>KODEX 성장주</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_growth</td>
+      <td>1,495</td>
+    </tr>
+    <tr>
+      <td>363580</td>
+      <td>KODEX 200IT TR</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_it</td>
+      <td>1,021</td>
+    </tr>
+    <tr>
+      <td>139220</td>
+      <td>TIGER 200 건설</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_construction</td>
+      <td>491</td>
+    </tr>
+    <tr>
+      <td>139270</td>
+      <td>TIGER 200 금융</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_financial</td>
+      <td>430</td>
+    </tr>
+    <tr>
+      <td>227540</td>
+      <td>TIGER 200 헬스케어</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_health</td>
+      <td>316</td>
+    </tr>
+    <tr>
+      <td>147970</td>
+      <td>TIGER 모멘텀</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_momentum</td>
+      <td>294</td>
+    </tr>
+    <tr>
+      <td>139250</td>
+      <td>TIGER 200 에너지화학</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_energy_chem</td>
+      <td>288</td>
+    </tr>
+    <tr>
+      <td>174350</td>
+      <td>TIGER 로우볼</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_lowvol</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>227550</td>
+      <td>TIGER 200 산업재</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_industrial</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <td>227570</td>
+      <td>TIGER 우량가치</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_value</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>139290</td>
+      <td>TIGER 200 경기소비재</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_discretionary</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>139240</td>
+      <td>TIGER 200 철강소재</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_steel</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>315270</td>
+      <td>TIGER 200커뮤니케이션서비스</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_comm</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>227560</td>
+      <td>TIGER 200 생활소비재</td>
+      <td>risk</td>
+      <td>domestic_equity_sector</td>
+      <td>kr_staples</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>459580</td>
+      <td>KODEX CD금리액티브(합성)</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>cd_rate</td>
+      <td>79,731</td>
+    </tr>
+    <tr>
+      <td>488770</td>
+      <td>KODEX 머니마켓액티브</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>mmf</td>
+      <td>72,891</td>
+    </tr>
+    <tr>
+      <td>423160</td>
+      <td>KODEX KOFR금리액티브(합성)</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>kofr</td>
+      <td>43,045</td>
+    </tr>
+    <tr>
+      <td>455890</td>
+      <td>RISE 머니마켓액티브</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>mmf</td>
+      <td>22,406</td>
+    </tr>
+    <tr>
+      <td>469830</td>
+      <td>SOL 초단기채권액티브</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>short_bond</td>
+      <td>9,092</td>
+    </tr>
+    <tr>
+      <td>153130</td>
+      <td>KODEX 단기채권</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>short_bond</td>
+      <td>7,321</td>
+    </tr>
+    <tr>
+      <td>456610</td>
+      <td>TIGER 미국달러SOFR금리액티브(합성)</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>sofr</td>
+      <td>6,550</td>
+    </tr>
+    <tr>
+      <td>196230</td>
+      <td>RISE 단기통안채</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>short_msb</td>
+      <td>2,081</td>
+    </tr>
+    <tr>
+      <td>455960</td>
+      <td>RISE 미국달러SOFR금리액티브(합성)</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>sofr</td>
+      <td>602</td>
+    </tr>
+    <tr>
+      <td>468370</td>
+      <td>KODEX iShares미국인플레이션국채액티브</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>us_tips</td>
+      <td>187</td>
+    </tr>
+    <tr>
+      <td>430500</td>
+      <td>KIWOOM 물가채KIS</td>
+      <td>safe</td>
+      <td>money_market</td>
+      <td>kr_tips</td>
+      <td>113</td>
+    </tr>
+    <tr>
+      <td>157450</td>
+      <td>TIGER 단기통안채</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>short_msb</td>
+      <td>9,750</td>
+    </tr>
+    <tr>
+      <td>114260</td>
+      <td>KODEX 국고채3년</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_3y</td>
+      <td>5,353</td>
+    </tr>
+    <tr>
+      <td>148070</td>
+      <td>KIWOOM 국고채10년</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_10y</td>
+      <td>4,925</td>
+    </tr>
+    <tr>
+      <td>439870</td>
+      <td>KODEX 국고채30년액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_30y</td>
+      <td>3,549</td>
+    </tr>
+    <tr>
+      <td>302190</td>
+      <td>TIGER 중장기국채</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_mid_long</td>
+      <td>2,950</td>
+    </tr>
+    <tr>
+      <td>272560</td>
+      <td>RISE 단기국공채액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>short_gov</td>
+      <td>1,915</td>
+    </tr>
+    <tr>
+      <td>114100</td>
+      <td>RISE 국고채3년</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_3y</td>
+      <td>1,798</td>
+    </tr>
+    <tr>
+      <td>451530</td>
+      <td>TIGER 국고채30년스트립액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_30y_strip</td>
+      <td>1,444</td>
+    </tr>
+    <tr>
+      <td>298340</td>
+      <td>PLUS 국채선물3년</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_3y_fut</td>
+      <td>600</td>
+    </tr>
+    <tr>
+      <td>426150</td>
+      <td>WON 대한민국국고채액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_active</td>
+      <td>530</td>
+    </tr>
+    <tr>
+      <td>152380</td>
+      <td>KODEX 국채선물10년</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_10y_fut</td>
+      <td>402</td>
+    </tr>
+    <tr>
+      <td>397420</td>
+      <td>RISE 국채선물5년추종</td>
+      <td>safe</td>
+      <td>domestic_bond_general</td>
+      <td>ktb_5y_fut</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <td>273130</td>
+      <td>KODEX 종합채권(AA-이상)액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_agg_aa</td>
+      <td>38,484</td>
+    </tr>
+    <tr>
+      <td>385540</td>
+      <td>RISE 종합채권(A-이상)액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_agg_a</td>
+      <td>17,737</td>
+    </tr>
+    <tr>
+      <td>0061Z0</td>
+      <td>RISE 단기특수은행채액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_bank_bond</td>
+      <td>12,843</td>
+    </tr>
+    <tr>
+      <td>451540</td>
+      <td>TIGER 종합채권(AA-이상)액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_agg_aa</td>
+      <td>10,134</td>
+    </tr>
+    <tr>
+      <td>438330</td>
+      <td>TIGER 투자등급회사채액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_ig_corp</td>
+      <td>6,984</td>
+    </tr>
+    <tr>
+      <td>0016X0</td>
+      <td>SOL 중단기회사채(A-이상)액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_mid_corp</td>
+      <td>3,669</td>
+    </tr>
+    <tr>
+      <td>363570</td>
+      <td>KODEX 장기종합채권(AA-이상)액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_lt_agg</td>
+      <td>3,200</td>
+    </tr>
+    <tr>
+      <td>278620</td>
+      <td>PLUS 단기채권액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_short_corp</td>
+      <td>532</td>
+    </tr>
+    <tr>
+      <td>336160</td>
+      <td>RISE 금융채액티브</td>
+      <td>safe</td>
+      <td>domestic_bond_credit</td>
+      <td>kr_financial_bond</td>
+      <td>417</td>
+    </tr>
+    <tr>
+      <td>453850</td>
+      <td>ACE 미국30years국채액티브(H)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_30y_h</td>
+      <td>18,200</td>
+    </tr>
+    <tr>
+      <td>458250</td>
+      <td>TIGER 미국30년국채스트립액티브(합성 H)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_30y_strip_h</td>
+      <td>6,231</td>
+    </tr>
+    <tr>
+      <td>484790</td>
+      <td>KODEX 미국30년국채액티브(H)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_30y_h</td>
+      <td>5,934</td>
+    </tr>
+    <tr>
+      <td>329750</td>
+      <td>TIGER 미국달러단기채권액티브</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_short</td>
+      <td>4,708</td>
+    </tr>
+    <tr>
+      <td>472870</td>
+      <td>RISE 미국30년국채엔화노출(합성 H)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_30y_jpy_h</td>
+      <td>3,570</td>
+    </tr>
+    <tr>
+      <td>476760</td>
+      <td>ACE 미국30년국채액티브</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_30y</td>
+      <td>3,171</td>
+    </tr>
+    <tr>
+      <td>305080</td>
+      <td>TIGER 미국채10년선물</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_10y_fut</td>
+      <td>2,446</td>
+    </tr>
+    <tr>
+      <td>308620</td>
+      <td>KODEX 미국10년국채선물</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_10y_fut</td>
+      <td>1,138</td>
+    </tr>
+    <tr>
+      <td>476750</td>
+      <td>ACE 미국30년국채엔화노출액티브(H)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_30y_jpy_h</td>
+      <td>860</td>
+    </tr>
+    <tr>
+      <td>489000</td>
+      <td>PLUS 일본엔화초단기국채(합성)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>jp_short</td>
+      <td>219</td>
+    </tr>
+    <tr>
+      <td>267440</td>
+      <td>RISE 미국장기국채선물(H)</td>
+      <td>safe</td>
+      <td>foreign_bond_general</td>
+      <td>us_lt_fut_h</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>458260</td>
+      <td>TIGER 미국투자등급회사채액티브(H)</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>us_ig_corp_h</td>
+      <td>2,883</td>
+    </tr>
+    <tr>
+      <td>468380</td>
+      <td>KODEX iShares미국하이일드액티브</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>us_hy</td>
+      <td>1,160</td>
+    </tr>
+    <tr>
+      <td>455660</td>
+      <td>ACE 미국하이일드액티브(H)</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>us_hy_h</td>
+      <td>528</td>
+    </tr>
+    <tr>
+      <td>468630</td>
+      <td>KODEX iShares미국투자등급회사채액티브</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>us_ig_corp</td>
+      <td>367</td>
+    </tr>
+    <tr>
+      <td>332620</td>
+      <td>PLUS 미국장기우량회사채</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>us_lt_corp</td>
+      <td>208</td>
+    </tr>
+    <tr>
+      <td>332610</td>
+      <td>PLUS 미국단기회사채(AAA~A)</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>us_short_corp</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <td>182490</td>
+      <td>TIGER 단기선진하이일드(합성 H)</td>
+      <td>safe</td>
+      <td>foreign_bond_credit</td>
+      <td>dm_hy_h</td>
+      <td>82</td>
+    </tr>
+  </tbody>
+</table></div>
+</main>
+<footer>
+  Auto-generated · Data: pykrx + yfinance · Built with Plotly
+</footer>
+</body>
+</html>

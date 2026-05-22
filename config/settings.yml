@@ -1,0 +1,77 @@
+# GAPS Asset Allocation - Global Settings
+# 2026-06 ~ 2026-09 운용을 위한 설정
+
+project:
+  name: "GAPS Asset Allocation"
+  horizon: "2026-06-01 to 2026-09-30"
+  base_currency: "KRW"
+
+data:
+  # Universe CSV path (relative to repo root)
+  universe_csv: "config/universe.csv"
+  # Storage
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  meta_dir: "data/meta"
+  # Maximum lookback - 가능한 가장 오래된 데이터부터 가져옴
+  start_date: "2010-01-01"
+  # 일시적 실패 대비 재시도
+  max_retries: 3
+  retry_backoff_sec: 2
+  # 동시 패치 작업자 수
+  workers: 4
+  # 1차 소스 / 폴백
+  primary_source: "pykrx"
+  fallback_source: "yfinance"
+
+backtest:
+  # 3개월 예측이 목표 → 백테스트 윈도우도 3개월 단위
+  test_window_days: 63       # ≈ 3개월 영업일
+  train_lookback_days: 252   # 1년 룩백
+  # 리밸런싱 주기는 weekly / monthly / quarterly / on_signal 가능
+  rebalance_frequency: "monthly"
+  # 거래비용/슬리피지
+  cost_bps: 5.0              # 매매 양면 5bp
+  slippage_bps: 2.0
+  # 시작 자본
+  initial_capital: 100000000  # 1억 KRW
+  # 무위험금리 (Sharpe 등 계산용, 연 환산)
+  risk_free_rate: 0.035
+
+risk:
+  # VaR/ES 신뢰수준
+  confidence_levels: [0.95, 0.99]
+  # 홀딩기간 (일)
+  horizon_days: [1, 5, 21]
+  # VaR 방식
+  methods: ["historical", "parametric", "monte_carlo"]
+  # Monte Carlo
+  mc_paths: 10000
+  mc_horizon_days: 63
+  mc_seed: 20260601
+  # Drawdown / 변동성 추정 윈도우
+  vol_lookback: 60
+  corr_lookback: 120
+
+report:
+  # GitHub Pages 배포 경로
+  output_dir: "docs"
+  site_title: "GAPS Asset Allocation Dashboard"
+  # 인터랙티브 차트 사용 (plotly)
+  use_plotly: true
+  # 페이지 구성
+  pages:
+    - dashboard       # 자산군별 현황 / 시장 요약
+    - universe        # 188 ETF 일람 + 최신 가격/수익률
+    - backtest        # 백테스트 결과 (전략별)
+    - risk            # VaR / ES / Monte Carlo / 상관행렬
+    - portfolio       # 현재 포트폴리오 팔로업
+
+strategies:
+  # 활성화된 전략 목록 (전략 확정 시 추가)
+  active: []
+  # 모든 전략 공통 제약
+  constraints:
+    max_weight_per_asset: 0.20
+    min_weight_per_asset: 0.0
+    long_only: true

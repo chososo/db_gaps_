@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "db_gaps"
+version = "0.1.0"
+description = "GAPS Asset Allocation (2026-06 ~ 2026-09) data pipeline, backtesting, risk, and HTML reporting"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.1",
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "pyarrow>=14.0",
+  "pyyaml>=6.0",
+  "pykrx>=1.0.45",
+  "yfinance>=0.2.40",
+  "plotly>=5.20",
+  "jinja2>=3.1",
+  "tqdm>=4.66",
+  "python-dateutil>=2.8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=4.1",
+  "ruff>=0.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"

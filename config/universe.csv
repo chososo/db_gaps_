@@ -1,0 +1,189 @@
+code,name,risk_type,asset_class,sub_category,aum_eok
+411060,ACE KRX금현물,risk,fx_commodity,gold,52303
+144600,KODEX 은선물(H),risk,fx_commodity,silver,14590
+132030,KODEX 골드선물(H),risk,fx_commodity,gold,4821
+261220,KODEX WTI원유선물(H),risk,fx_commodity,oil,1428
+261240,KODEX 미국달러선물,risk,fx_commodity,usd,724
+292560,TIGER 일본엔선물,risk,fx_commodity,jpy,542
+271060,KODEX 3대농산물선물(H),risk,fx_commodity,agri,252
+360750,TIGER 미국S&P500,risk,foreign_equity_index,us_sp500,147821
+379800,KODEX 미국S&P500,risk,foreign_equity_index,us_sp500,81089
+133690,TIGER 미국나스닥100,risk,foreign_equity_index,us_nasdaq,79730
+379810,KODEX 미국나스닥100,risk,foreign_equity_index,us_nasdaq,55319
+381180,TIGER 미국필라델피아반도체나스닥,risk,foreign_equity_index,us_semi,34100
+360200,ACE 미국S&P500,risk,foreign_equity_index,us_sp500,33475
+367380,ACE 미국나스닥100,risk,foreign_equity_index,us_nasdaq,27323
+379780,RISE 미국S&P500,risk,foreign_equity_index,us_sp500,14147
+371160,TIGER 차이나항셍테크,risk,foreign_equity_index,china_tech,9134
+449180,KODEX 미국S&P500(H),risk,foreign_equity_index,us_sp500_h,6946
+251350,KODEX 선진국MSCI World,risk,foreign_equity_index,dm_world,4913
+448290,TIGER 미국S&P500TR(H),risk,foreign_equity_index,us_sp500_h,4371
+241180,TIGER 일본니케이225,risk,foreign_equity_index,japan,4279
+453810,KODEX 인도Nifty50,risk,foreign_equity_index,india,4103
+453870,TIGER 인도니프티50,risk,foreign_equity_index,india,3951
+245710,ACE 베트남VN30(합성),risk,foreign_equity_index,vietnam,3155
+448300,TIGER 미국나스닥100TR(H),risk,foreign_equity_index,us_nasdaq_h,2963
+283580,KODEX 차이나CSI300,risk,foreign_equity_index,china,2825
+200250,KIWOOM 인도Nifty50(합성),risk,foreign_equity_index,india,2215
+414780,TIGER 차이나과창판STAR50(합성),risk,foreign_equity_index,china_tech,2068
+372330,KODEX 차이나항셍테크,risk,foreign_equity_index,china_tech,1627
+192090,TIGER 차이나CSI300,risk,foreign_equity_index,china,1575
+219480,KODEX 미국S&P500선물(H),risk,foreign_equity_index,us_sp500_h,1437
+245340,TIGER 미국다우존스30,risk,foreign_equity_index,us_dow,1412
+168580,ACE 중국본토CSI300,risk,foreign_equity_index,china,1301
+488500,TIGER 미국S&P500동일가중,risk,foreign_equity_index,us_sp500_ew,1293
+304940,KODEX 미국나스닥100선물(H),risk,foreign_equity_index,us_nasdaq_h,1056
+143850,TIGER 미국S&P500선물(H),risk,foreign_equity_index,us_sp500_h,982
+195980,PLUS 신흥국MSCI(합성 H),risk,foreign_equity_index,em,920
+101280,KODEX 일본TOPIX100,risk,foreign_equity_index,japan,624
+099140,KODEX 차이나H,risk,foreign_equity_index,china_h,437
+245360,TIGER 차이나HSCEI,risk,foreign_equity_index,china_h,400
+238720,ACE 일본Nikkei225(H),risk,foreign_equity_index,japan_h,359
+195930,TIGER 유로스탁스50(합성 H),risk,foreign_equity_index,europe_h,354
+256440,ACE 인도네시아MSCI(합성),risk,foreign_equity_index,indonesia,345
+280930,KODEX 미국러셀2000(H),risk,foreign_equity_index,us_smallcap_h,326
+195970,PLUS 선진국MSCI(합성 H),risk,foreign_equity_index,dm_world_h,244
+250730,RISE 차이나HSCEI(H),risk,foreign_equity_index,china_h,172
+291130,ACE 멕시코MSCI(합성),risk,foreign_equity_index,mexico,171
+195920,TIGER 일본TOPIX(합성 H),risk,foreign_equity_index,japan_h,159
+310080,RISE 중국MSCI China(H),risk,foreign_equity_index,china_h,119
+105010,TIGER 라틴35,risk,foreign_equity_index,latam,113
+379790,RISE 유로스탁스50(H),risk,foreign_equity_index,europe_h,109
+411860,KIWOOM 독일DAX,risk,foreign_equity_index,germany,104
+499150,SOL 미국S&P500엔화노출(H),risk,foreign_equity_index,us_sp500_jpy_h,85
+189400,PLUS 글로벌MSCI(합성 H),risk,foreign_equity_index,global_h,70
+261920,ACE 필리핀MSCI(합성),risk,foreign_equity_index,philippines,57
+381170,TIGER 미국테크TOP10 INDXX,risk,foreign_equity_sector,us_tech,38009
+458730,TIGER 미국배당다우존스,risk,foreign_equity_sector,us_dividend,30379
+487230,KODEX 미국AI전력핵심인프라,risk,foreign_equity_sector,us_ai_power,13631
+371460,TIGER 차이나전기차SOLACTIVE,risk,foreign_equity_sector,china_ev,13027
+457480,ACE 테슬라밸류체인액티브,risk,foreign_equity_sector,us_tsla,11487
+456600,TIMEFOLIO 글로벌AI인공지능액티브,risk,foreign_equity_sector,global_ai,10744
+465580,ACE 미국빅테크TOP7 Plus,risk,foreign_equity_sector,us_bigtech,9716
+446770,ACE 글로벌반도체TOP4 Plus,risk,foreign_equity_sector,global_semi,9671
+446720,SOL 미국배당다우존스,risk,foreign_equity_sector,us_dividend,9140
+497570,TIGER 미국필라델피아AI반도체나스닥,risk,foreign_equity_sector,us_ai_semi,8188
+402970,ACE 미국배당다우존스,risk,foreign_equity_sector,us_dividend,7817
+390390,KODEX 미국반도체,risk,foreign_equity_sector,us_semi,7809
+452360,SOL 미국배당다우존스(H),risk,foreign_equity_sector,us_dividend_h,2026
+182480,TIGER 미국MSCI리츠(합성 H),risk,foreign_equity_sector,us_reit_h,1666
+429000,TIGER 미국S&P500배당귀족,risk,foreign_equity_sector,us_dividend,1556
+463680,KODEX 미국S&P500테크놀로지,risk,foreign_equity_sector,us_sector_tech,648
+453640,KODEX 미국S&P500헬스케어,risk,foreign_equity_sector,us_sector_health,643
+200030,KODEX 미국S&P500산업재(합성),risk,foreign_equity_sector,us_sector_industrial,500
+453650,KODEX 미국S&P500금융,risk,foreign_equity_sector,us_sector_financial,435
+218420,KODEX 미국S&P500에너지(합성),risk,foreign_equity_sector,us_sector_energy,410
+352560,KODEX 미국부동산리츠(H),risk,foreign_equity_sector,us_reit_h,332
+493420,SOL 미국배당다우존스TR,risk,foreign_equity_sector,us_dividend,325
+287180,PLUS 미국나스닥테크,risk,foreign_equity_sector,us_tech,316
+245350,TIGER 유로스탁스배당30,risk,foreign_equity_sector,europe_dividend,296
+494410,PLUS 미국S&P500성장주,risk,foreign_equity_sector,us_growth,287
+460660,RISE 미국S&P배당킹,risk,foreign_equity_sector,us_dividend,245
+185680,KODEX 미국S&P바이오(합성),risk,foreign_equity_sector,us_sector_bio,200
+453630,KODEX 미국S&P500필수소비재,risk,foreign_equity_sector,us_sector_staples,176
+463640,KODEX 미국S&P500유틸리티,risk,foreign_equity_sector,us_sector_utilities,162
+453660,KODEX 미국S&P500경기소비재,risk,foreign_equity_sector,us_sector_discretionary,139
+463690,KODEX 미국S&P500커뮤니케이션,risk,foreign_equity_sector,us_sector_comm,131
+069500,KODEX 200,risk,domestic_equity_index,kospi200,164803
+229200,KODEX 코스닥150,risk,domestic_equity_index,kosdaq150,71839
+102110,TIGER 200,risk,domestic_equity_index,kospi200,67897
+278530,KODEX 200TR,risk,domestic_equity_index,kospi200_tr,52559
+310970,TIGER MSCI Korea TR,risk,domestic_equity_index,msci_korea_tr,39380
+148020,RISE 200,risk,domestic_equity_index,kospi200,29007
+232080,TIGER 코스닥150,risk,domestic_equity_index,kosdaq150,22098
+278540,KODEX MSCI Korea TR,risk,domestic_equity_index,msci_korea_tr,21216
+294400,KIWOOM 200TR,risk,domestic_equity_index,kospi200_tr,15375
+152100,PLUS 200,risk,domestic_equity_index,kospi200,13051
+226490,KODEX 코스피,risk,domestic_equity_index,kospi,7939
+361580,RISE 200TR,risk,domestic_equity_index,kospi200_tr,3842
+277630,TIGER 코스피,risk,domestic_equity_index,kospi,3810
+295040,SOL 200TR,risk,domestic_equity_index,kospi200_tr,3540
+302450,RISE 코스피,risk,domestic_equity_index,kospi,3310
+328370,PLUS 코스피TR,risk,domestic_equity_index,kospi_tr,1070
+156080,KODEX MSCI Korea,risk,domestic_equity_index,msci_korea,294
+091160,KODEX 반도체,risk,domestic_equity_sector,kr_semi,36019
+161510,PLUS 고배당주,risk,domestic_equity_sector,kr_dividend,23624
+102780,KODEX 삼성그룹,risk,domestic_equity_sector,kr_samsung,23508
+395160,KODEX AI반도체,risk,domestic_equity_sector,kr_ai_semi,20947
+466920,SOL 조선TOP3플러스,risk,domestic_equity_sector,kr_shipbuild,18733
+305720,KODEX 2차전지산업,risk,domestic_equity_sector,kr_battery,18187
+449450,PLUS K방산,risk,domestic_equity_sector,kr_defense,17803
+487240,KODEX AI전력핵심설비,risk,domestic_equity_sector,kr_ai_power,15914
+395270,HANARO Fn K-반도체,risk,domestic_equity_sector,kr_semi,14664
+315930,KODEX Top5PlusTR,risk,domestic_equity_sector,kr_top5,13675
+305540,TIGER 2차전지테마,risk,domestic_equity_sector,kr_battery,11376
+494670,TIGER 조선TOP10,risk,domestic_equity_sector,kr_shipbuild,9938
+445290,KODEX 로봇액티브,risk,domestic_equity_sector,kr_robot,9793
+455850,SOL AI반도체소부장,risk,domestic_equity_sector,kr_ai_semi,9687
+466940,TIGER 은행고배당플러스TOP10,risk,domestic_equity_sector,kr_bank,9364
+463250,TIGER K방산&우주,risk,domestic_equity_sector,kr_defense_space,8830
+139260,TIGER 200 IT,risk,domestic_equity_sector,kr_it,8199
+462010,TIGER 2차전지소재Fn,risk,domestic_equity_sector,kr_battery,7840
+434730,HANARO 원자력iSelect,risk,domestic_equity_sector,kr_nuclear,7364
+091180,KODEX 자동차,risk,domestic_equity_sector,kr_auto,5224
+091170,KODEX 은행,risk,domestic_equity_sector,kr_bank,4569
+139230,TIGER 200 중공업,risk,domestic_equity_sector,kr_heavy,3928
+325010,KODEX 성장주,risk,domestic_equity_sector,kr_growth,1495
+363580,KODEX 200IT TR,risk,domestic_equity_sector,kr_it,1021
+139220,TIGER 200 건설,risk,domestic_equity_sector,kr_construction,491
+139270,TIGER 200 금융,risk,domestic_equity_sector,kr_financial,430
+227540,TIGER 200 헬스케어,risk,domestic_equity_sector,kr_health,316
+147970,TIGER 모멘텀,risk,domestic_equity_sector,kr_momentum,294
+139250,TIGER 200 에너지화학,risk,domestic_equity_sector,kr_energy_chem,288
+174350,TIGER 로우볼,risk,domestic_equity_sector,kr_lowvol,94
+227550,TIGER 200 산업재,risk,domestic_equity_sector,kr_industrial,91
+227570,TIGER 우량가치,risk,domestic_equity_sector,kr_value,88
+139290,TIGER 200 경기소비재,risk,domestic_equity_sector,kr_discretionary,83
+139240,TIGER 200 철강소재,risk,domestic_equity_sector,kr_steel,72
+315270,TIGER 200커뮤니케이션서비스,risk,domestic_equity_sector,kr_comm,66
+227560,TIGER 200 생활소비재,risk,domestic_equity_sector,kr_staples,42
+459580,KODEX CD금리액티브(합성),safe,money_market,cd_rate,79731
+488770,KODEX 머니마켓액티브,safe,money_market,mmf,72891
+423160,KODEX KOFR금리액티브(합성),safe,money_market,kofr,43045
+455890,RISE 머니마켓액티브,safe,money_market,mmf,22406
+469830,SOL 초단기채권액티브,safe,money_market,short_bond,9092
+153130,KODEX 단기채권,safe,money_market,short_bond,7321
+456610,TIGER 미국달러SOFR금리액티브(합성),safe,money_market,sofr,6550
+196230,RISE 단기통안채,safe,money_market,short_msb,2081
+455960,RISE 미국달러SOFR금리액티브(합성),safe,money_market,sofr,602
+468370,KODEX iShares미국인플레이션국채액티브,safe,money_market,us_tips,187
+430500,KIWOOM 물가채KIS,safe,money_market,kr_tips,113
+157450,TIGER 단기통안채,safe,domestic_bond_general,short_msb,9750
+114260,KODEX 국고채3년,safe,domestic_bond_general,ktb_3y,5353
+148070,KIWOOM 국고채10년,safe,domestic_bond_general,ktb_10y,4925
+439870,KODEX 국고채30년액티브,safe,domestic_bond_general,ktb_30y,3549
+302190,TIGER 중장기국채,safe,domestic_bond_general,ktb_mid_long,2950
+272560,RISE 단기국공채액티브,safe,domestic_bond_general,short_gov,1915
+114100,RISE 국고채3년,safe,domestic_bond_general,ktb_3y,1798
+451530,TIGER 국고채30년스트립액티브,safe,domestic_bond_general,ktb_30y_strip,1444
+298340,PLUS 국채선물3년,safe,domestic_bond_general,ktb_3y_fut,600
+426150,WON 대한민국국고채액티브,safe,domestic_bond_general,ktb_active,530
+152380,KODEX 국채선물10년,safe,domestic_bond_general,ktb_10y_fut,402
+397420,RISE 국채선물5년추종,safe,domestic_bond_general,ktb_5y_fut,52
+273130,KODEX 종합채권(AA-이상)액티브,safe,domestic_bond_credit,kr_agg_aa,38484
+385540,RISE 종합채권(A-이상)액티브,safe,domestic_bond_credit,kr_agg_a,17737
+0061Z0,RISE 단기특수은행채액티브,safe,domestic_bond_credit,kr_bank_bond,12843
+451540,TIGER 종합채권(AA-이상)액티브,safe,domestic_bond_credit,kr_agg_aa,10134
+438330,TIGER 투자등급회사채액티브,safe,domestic_bond_credit,kr_ig_corp,6984
+0016X0,SOL 중단기회사채(A-이상)액티브,safe,domestic_bond_credit,kr_mid_corp,3669
+363570,KODEX 장기종합채권(AA-이상)액티브,safe,domestic_bond_credit,kr_lt_agg,3200
+278620,PLUS 단기채권액티브,safe,domestic_bond_credit,kr_short_corp,532
+336160,RISE 금융채액티브,safe,domestic_bond_credit,kr_financial_bond,417
+453850,ACE 미국30years국채액티브(H),safe,foreign_bond_general,us_30y_h,18200
+458250,TIGER 미국30년국채스트립액티브(합성 H),safe,foreign_bond_general,us_30y_strip_h,6231
+484790,KODEX 미국30년국채액티브(H),safe,foreign_bond_general,us_30y_h,5934
+329750,TIGER 미국달러단기채권액티브,safe,foreign_bond_general,us_short,4708
+472870,RISE 미국30년국채엔화노출(합성 H),safe,foreign_bond_general,us_30y_jpy_h,3570
+476760,ACE 미국30년국채액티브,safe,foreign_bond_general,us_30y,3171
+305080,TIGER 미국채10년선물,safe,foreign_bond_general,us_10y_fut,2446
+308620,KODEX 미국10년국채선물,safe,foreign_bond_general,us_10y_fut,1138
+476750,ACE 미국30년국채엔화노출액티브(H),safe,foreign_bond_general,us_30y_jpy_h,860
+489000,PLUS 일본엔화초단기국채(합성),safe,foreign_bond_general,jp_short,219
+267440,RISE 미국장기국채선물(H),safe,foreign_bond_general,us_lt_fut_h,51
+458260,TIGER 미국투자등급회사채액티브(H),safe,foreign_bond_credit,us_ig_corp_h,2883
+468380,KODEX iShares미국하이일드액티브,safe,foreign_bond_credit,us_hy,1160
+455660,ACE 미국하이일드액티브(H),safe,foreign_bond_credit,us_hy_h,528
+468630,KODEX iShares미국투자등급회사채액티브,safe,foreign_bond_credit,us_ig_corp,367
+332620,PLUS 미국장기우량회사채,safe,foreign_bond_credit,us_lt_corp,208
+332610,PLUS 미국단기회사채(AAA~A),safe,foreign_bond_credit,us_short_corp,131
+182490,TIGER 단기선진하이일드(합성 H),safe,foreign_bond_credit,dm_hy_h,82

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Portfolio · GAPS</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root { --ink:#1a1f2c; --muted:#637085; --line:#e7eaf0; --bg:#fafbfd; --accent:#234bdf; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+         color: var(--ink); background: var(--bg); margin: 0; }
+  header { background: white; border-bottom: 1px solid var(--line); padding: 14px 22px; position: sticky; top:0; z-index:10; }
+  header h1 { font-size: 16px; margin: 0; }
+  header .subtitle { color: var(--muted); font-size: 12px; }
+  nav { background: white; border-bottom: 1px solid var(--line); padding: 0 22px; }
+  nav a { display: inline-block; padding: 10px 14px; color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent; font-size: 14px;}
+  nav a.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  nav a:hover { color: var(--accent); }
+  main { max-width: 1200px; margin: 24px auto; padding: 0 22px; }
+  h2 { font-size: 18px; margin-top: 30px; }
+  h3 { font-size: 15px; margin-top: 22px; color: var(--ink); }
+  .card { background: white; border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin: 14px 0;}
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .kpi { background: white; border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .kpi .label { color: var(--muted); font-size: 12px; }
+  .kpi .value { font-size: 22px; font-weight: 700; margin-top: 4px;}
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #f4f6fa; color: var(--muted); font-weight: 600; }
+  tr:hover { background: #fafbfd; }
+  .neg { color: #c8341e; } .pos { color: #198042; }
+  footer { color: var(--muted); font-size: 12px; text-align: center; padding: 28px 0; }
+  code { background: #f0f2f7; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>GAPS Asset Allocation Dashboard</h1>
+  <div class="subtitle">2026-06 ~ 2026-09 운용 · 데이터 기준 2026-05-22 16:12</div>
+</header>
+<nav>
+  
+    <a href="index.html" class="">Dashboard</a>
+  
+    <a href="universe.html" class="">Universe (188)</a>
+  
+    <a href="backtest.html" class="">Backtest</a>
+  
+    <a href="risk.html" class="">Risk · VaR/ES/MC</a>
+  
+    <a href="portfolio.html" class="active">Portfolio Follow-up</a>
+  
+</nav>
+<main>
+<div class='card'>전략이 확정되지 않아 현재 포트폴리오가 없습니다. 전략을 등록하면 이 페이지에 보유종목/비중/팔로업 지표가 표시됩니다.</div>
+</main>
+<footer>
+  Auto-generated · Data: pykrx + yfinance · Built with Plotly
+</footer>
+</body>
+</html>
