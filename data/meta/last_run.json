@@ -1,395 +1,381 @@
 {
-  "run_at_utc": "2026-11-25T19:30:10Z",
+  "run_at_utc": "2026-11-26T19:13:05Z",
   "n_codes": 188,
   "n_ok": 188,
   "n_fail": 0,
-  "rows_processed": 4134,
+  "rows_processed": 4135,
   "cols_processed": 188,
   "failures": [],
   "per_code": [
     {
-      "code": "261220",
+      "code": "411060",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2396,
+      "rows_total": 1186,
+      "ok": true
+    },
+    {
+      "code": "132030",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3941,
       "ok": true
     },
     {
       "code": "144600",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3742,
+      "rows_total": 3743,
       "ok": true
     },
     {
-      "code": "132030",
-      "source": "yfinance",
-      "rows_new": 2,
-      "rows_total": 3940,
-      "ok": true
-    },
-    {
-      "code": "411060",
+      "code": "261220",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1185,
+      "rows_total": 2397,
       "ok": true
     },
     {
       "code": "261240",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2396,
+      "rows_total": 2397,
       "ok": true
     },
     {
       "code": "271060",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2284,
+      "rows_total": 2285,
       "ok": true
     },
     {
       "code": "292560",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2083,
-      "ok": true
-    },
-    {
-      "code": "360750",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1520,
-      "ok": true
-    },
-    {
-      "code": "379800",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1355,
-      "ok": true
-    },
-    {
-      "code": "133690",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3929,
+      "rows_total": 2084,
       "ok": true
     },
     {
       "code": "379810",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1355,
+      "rows_total": 1356,
       "ok": true
     },
     {
-      "code": "381180",
+      "code": "360750",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1521,
+      "ok": true
+    },
+    {
+      "code": "133690",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3930,
+      "ok": true
+    },
+    {
+      "code": "379800",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 1356,
       "ok": true
     },
     {
-      "code": "379780",
+      "code": "381180",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1355,
-      "ok": true
-    },
-    {
-      "code": "367380",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1466,
+      "rows_total": 1357,
       "ok": true
     },
     {
       "code": "360200",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1520,
+      "rows_total": 1521,
       "ok": true
     },
     {
-      "code": "371160",
+      "code": "367380",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1431,
+      "rows_total": 1467,
       "ok": true
     },
     {
-      "code": "251350",
+      "code": "379780",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2486,
-      "ok": true
-    },
-    {
-      "code": "448290",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 956,
+      "rows_total": 1356,
       "ok": true
     },
     {
       "code": "449180",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 952,
+      "rows_total": 953,
       "ok": true
     },
     {
-      "code": "241180",
+      "code": "371160",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2574,
+      "rows_total": 1432,
+      "ok": true
+    },
+    {
+      "code": "251350",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2487,
+      "ok": true
+    },
+    {
+      "code": "448290",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 957,
       "ok": true
     },
     {
       "code": "453810",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 856,
+      "rows_total": 857,
       "ok": true
     },
     {
       "code": "453870",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 861,
+      "rows_total": 862,
+      "ok": true
+    },
+    {
+      "code": "241180",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2575,
       "ok": true
     },
     {
       "code": "245710",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2518,
+      "rows_total": 2519,
       "ok": true
     },
     {
       "code": "448300",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 956,
-      "ok": true
-    },
-    {
-      "code": "200250",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3014,
-      "ok": true
-    },
-    {
-      "code": "283580",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2163,
+      "rows_total": 957,
       "ok": true
     },
     {
       "code": "414780",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1128,
+      "rows_total": 1129,
+      "ok": true
+    },
+    {
+      "code": "200250",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3015,
+      "ok": true
+    },
+    {
+      "code": "283580",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2164,
       "ok": true
     },
     {
       "code": "372330",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1431,
-      "ok": true
-    },
-    {
-      "code": "192090",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3102,
+      "rows_total": 1432,
       "ok": true
     },
     {
       "code": "219480",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2757,
+      "rows_total": 2758,
+      "ok": true
+    },
+    {
+      "code": "192090",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3103,
       "ok": true
     },
     {
       "code": "245340",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2519,
-      "ok": true
-    },
-    {
-      "code": "488500",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 565,
+      "rows_total": 2520,
       "ok": true
     },
     {
       "code": "168580",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3399,
+      "rows_total": 3400,
+      "ok": true
+    },
+    {
+      "code": "488500",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 566,
       "ok": true
     },
     {
       "code": "304940",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1992,
+      "rows_total": 1993,
       "ok": true
     },
     {
       "code": "195980",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3043,
-      "ok": true
-    },
-    {
-      "code": "143850",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3740,
-      "ok": true
-    },
-    {
-      "code": "101280",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 4126,
+      "rows_total": 3044,
       "ok": true
     },
     {
       "code": "099140",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 4126,
+      "rows_total": 4127,
+      "ok": true
+    },
+    {
+      "code": "143850",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3741,
+      "ok": true
+    },
+    {
+      "code": "101280",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 4127,
       "ok": true
     },
     {
       "code": "238720",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2600,
-      "ok": true
-    },
-    {
-      "code": "245360",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2528,
-      "ok": true
-    },
-    {
-      "code": "195930",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3049,
+      "rows_total": 2601,
       "ok": true
     },
     {
       "code": "256440",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2435,
+      "rows_total": 2436,
+      "ok": true
+    },
+    {
+      "code": "195930",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3050,
+      "ok": true
+    },
+    {
+      "code": "245360",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2529,
       "ok": true
     },
     {
       "code": "280930",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2186,
-      "ok": true
-    },
-    {
-      "code": "195970",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3044,
-      "ok": true
-    },
-    {
-      "code": "250730",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2466,
+      "rows_total": 2187,
       "ok": true
     },
     {
       "code": "291130",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2110,
+      "rows_total": 2111,
+      "ok": true
+    },
+    {
+      "code": "195970",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3045,
+      "ok": true
+    },
+    {
+      "code": "250730",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2467,
       "ok": true
     },
     {
       "code": "195920",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3048,
+      "rows_total": 3049,
       "ok": true
     },
     {
       "code": "310080",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1933,
+      "rows_total": 1934,
       "ok": true
     },
     {
       "code": "105010",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 4052,
+      "rows_total": 4053,
       "ok": true
     },
     {
       "code": "379790",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1355,
-      "ok": true
-    },
-    {
-      "code": "499150",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 479,
+      "rows_total": 1356,
       "ok": true
     },
     {
       "code": "411860",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1180,
+      "rows_total": 1181,
       "ok": true
     },
     {
       "code": "189400",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3146,
+      "rows_total": 3147,
       "ok": true
     },
     {
-      "code": "381170",
+      "code": "499150",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1355,
-      "ok": true
-    },
-    {
-      "code": "458730",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 820,
+      "rows_total": 480,
       "ok": true
     },
     {
@@ -400,794 +386,822 @@
       "ok": true
     },
     {
-      "code": "487230",
+      "code": "381170",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 575,
+      "rows_total": 1356,
       "ok": true
     },
     {
-      "code": "457480",
+      "code": "458730",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 840,
+      "rows_total": 821,
+      "ok": true
+    },
+    {
+      "code": "487230",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 576,
       "ok": true
     },
     {
       "code": "371460",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1437,
+      "rows_total": 1438,
       "ok": true
     },
     {
-      "code": "465580",
+      "code": "457480",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 773,
+      "rows_total": 841,
       "ok": true
     },
     {
       "code": "456600",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 840,
+      "rows_total": 841,
       "ok": true
     },
     {
-      "code": "446720",
+      "code": "465580",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 965,
+      "rows_total": 774,
       "ok": true
     },
     {
       "code": "446770",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 965,
+      "rows_total": 966,
+      "ok": true
+    },
+    {
+      "code": "446720",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 966,
       "ok": true
     },
     {
       "code": "497570",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 485,
+      "rows_total": 486,
       "ok": true
     },
     {
       "code": "402970",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1224,
+      "rows_total": 1225,
       "ok": true
     },
     {
       "code": "390390",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1300,
+      "rows_total": 1301,
       "ok": true
     },
     {
       "code": "452360",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 879,
+      "rows_total": 880,
       "ok": true
     },
     {
       "code": "182480",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3181,
+      "rows_total": 3182,
       "ok": true
     },
     {
       "code": "429000",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1088,
-      "ok": true
-    },
-    {
-      "code": "463680",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 801,
-      "ok": true
-    },
-    {
-      "code": "200030",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3006,
+      "rows_total": 1089,
       "ok": true
     },
     {
       "code": "453640",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 879,
+      "rows_total": 880,
       "ok": true
     },
     {
-      "code": "453650",
+      "code": "200030",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 879,
+      "rows_total": 3007,
       "ok": true
     },
     {
-      "code": "218420",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2811,
-      "ok": true
-    },
-    {
-      "code": "493420",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 517,
-      "ok": true
-    },
-    {
-      "code": "352560",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 590,
-      "ok": true
-    },
-    {
-      "code": "287180",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2162,
-      "ok": true
-    },
-    {
-      "code": "245350",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2518,
-      "ok": true
-    },
-    {
-      "code": "460660",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 815,
-      "ok": true
-    },
-    {
-      "code": "494410",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 507,
-      "ok": true
-    },
-    {
-      "code": "185680",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3173,
-      "ok": true
-    },
-    {
-      "code": "453630",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 879,
-      "ok": true
-    },
-    {
-      "code": "463640",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 801,
-      "ok": true
-    },
-    {
-      "code": "453660",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 879,
-      "ok": true
-    },
-    {
-      "code": "069500",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 4127,
-      "ok": true
-    },
-    {
-      "code": "229200",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2703,
-      "ok": true
-    },
-    {
-      "code": "463690",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 801,
-      "ok": true
-    },
-    {
-      "code": "102110",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 4127,
-      "ok": true
-    },
-    {
-      "code": "278530",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2178,
-      "ok": true
-    },
-    {
-      "code": "148020",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3679,
-      "ok": true
-    },
-    {
-      "code": "232080",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2674,
-      "ok": true
-    },
-    {
-      "code": "278540",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2186,
-      "ok": true
-    },
-    {
-      "code": "310970",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 134,
-      "ok": true
-    },
-    {
-      "code": "294400",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2079,
-      "ok": true
-    },
-    {
-      "code": "152100",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3621,
-      "ok": true
-    },
-    {
-      "code": "361580",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1510,
-      "ok": true
-    },
-    {
-      "code": "226490",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2728,
-      "ok": true
-    },
-    {
-      "code": "295040",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2079,
-      "ok": true
-    },
-    {
-      "code": "277630",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2230,
-      "ok": true
-    },
-    {
-      "code": "302450",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2019,
-      "ok": true
-    },
-    {
-      "code": "328370",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1795,
-      "ok": true
-    },
-    {
-      "code": "156080",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3404,
-      "ok": true
-    },
-    {
-      "code": "091160",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 4126,
-      "ok": true
-    },
-    {
-      "code": "161510",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3464,
-      "ok": true
-    },
-    {
-      "code": "102780",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 4126,
-      "ok": true
-    },
-    {
-      "code": "395160",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1277,
-      "ok": true
-    },
-    {
-      "code": "466920",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 760,
-      "ok": true
-    },
-    {
-      "code": "305720",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1984,
-      "ok": true
-    },
-    {
-      "code": "449450",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 928,
-      "ok": true
-    },
-    {
-      "code": "487240",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 575,
-      "ok": true
-    },
-    {
-      "code": "395270",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1277,
-      "ok": true
-    },
-    {
-      "code": "315930",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1899,
-      "ok": true
-    },
-    {
-      "code": "305540",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1984,
-      "ok": true
-    },
-    {
-      "code": "494670",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 508,
-      "ok": true
-    },
-    {
-      "code": "445290",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 964,
-      "ok": true
-    },
-    {
-      "code": "455850",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 853,
-      "ok": true
-    },
-    {
-      "code": "463250",
+      "code": "463680",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 802,
       "ok": true
     },
     {
-      "code": "466940",
+      "code": "453650",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 754,
+      "rows_total": 880,
       "ok": true
     },
     {
-      "code": "139260",
+      "code": "218420",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3813,
+      "rows_total": 2812,
       "ok": true
     },
     {
-      "code": "462010",
+      "code": "493420",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 808,
+      "rows_total": 518,
       "ok": true
     },
     {
-      "code": "434730",
+      "code": "352560",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1059,
+      "rows_total": 591,
       "ok": true
     },
     {
-      "code": "091180",
+      "code": "287180",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 4126,
+      "rows_total": 2163,
       "ok": true
     },
     {
-      "code": "091170",
+      "code": "494410",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 4127,
+      "rows_total": 508,
       "ok": true
     },
     {
-      "code": "325010",
+      "code": "245350",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1811,
+      "rows_total": 2519,
       "ok": true
     },
     {
-      "code": "363580",
+      "code": "460660",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1485,
+      "rows_total": 816,
       "ok": true
     },
     {
-      "code": "139230",
+      "code": "185680",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3800,
+      "rows_total": 3174,
       "ok": true
     },
     {
-      "code": "139220",
+      "code": "453630",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3797,
+      "rows_total": 880,
       "ok": true
     },
     {
-      "code": "139270",
+      "code": "463690",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3778,
+      "rows_total": 802,
       "ok": true
     },
     {
-      "code": "227540",
+      "code": "453660",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2706,
+      "rows_total": 880,
       "ok": true
     },
     {
-      "code": "147970",
+      "code": "463640",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3644,
+      "rows_total": 802,
       "ok": true
     },
     {
-      "code": "139250",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3800,
-      "ok": true
-    },
-    {
-      "code": "174350",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3263,
-      "ok": true
-    },
-    {
-      "code": "227550",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2698,
-      "ok": true
-    },
-    {
-      "code": "227570",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2702,
-      "ok": true
-    },
-    {
-      "code": "139290",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3806,
-      "ok": true
-    },
-    {
-      "code": "315270",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1904,
-      "ok": true
-    },
-    {
-      "code": "139240",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3756,
-      "ok": true
-    },
-    {
-      "code": "227560",
+      "code": "229200",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 2704,
       "ok": true
     },
     {
-      "code": "459580",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 827,
-      "ok": true
-    },
-    {
-      "code": "488770",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 555,
-      "ok": true
-    },
-    {
-      "code": "455890",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 845,
-      "ok": true
-    },
-    {
-      "code": "423160",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1099,
-      "ok": true
-    },
-    {
-      "code": "153130",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3591,
-      "ok": true
-    },
-    {
-      "code": "456610",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 845,
-      "ok": true
-    },
-    {
-      "code": "469830",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 738,
-      "ok": true
-    },
-    {
-      "code": "455960",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 840,
-      "ok": true
-    },
-    {
-      "code": "196230",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 2979,
-      "ok": true
-    },
-    {
-      "code": "468370",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 752,
-      "ok": true
-    },
-    {
-      "code": "430500",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1077,
-      "ok": true
-    },
-    {
-      "code": "157450",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 3534,
-      "ok": true
-    },
-    {
-      "code": "114260",
+      "code": "069500",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 4128,
       "ok": true
     },
     {
-      "code": "439870",
+      "code": "102110",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1020,
+      "rows_total": 4128,
       "ok": true
     },
     {
-      "code": "148070",
+      "code": "278530",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3676,
+      "rows_total": 2179,
       "ok": true
     },
     {
-      "code": "272560",
+      "code": "148020",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2272,
+      "rows_total": 3680,
       "ok": true
     },
     {
-      "code": "114100",
+      "code": "232080",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 4105,
+      "rows_total": 2675,
       "ok": true
     },
     {
-      "code": "451530",
+      "code": "278540",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 911,
+      "rows_total": 2187,
       "ok": true
     },
     {
-      "code": "302190",
+      "code": "310970",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 135,
+      "ok": true
+    },
+    {
+      "code": "294400",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2080,
+      "ok": true
+    },
+    {
+      "code": "152100",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3622,
+      "ok": true
+    },
+    {
+      "code": "226490",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2729,
+      "ok": true
+    },
+    {
+      "code": "361580",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1511,
+      "ok": true
+    },
+    {
+      "code": "277630",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2231,
+      "ok": true
+    },
+    {
+      "code": "295040",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2080,
+      "ok": true
+    },
+    {
+      "code": "302450",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 2020,
       "ok": true
     },
     {
-      "code": "426150",
+      "code": "328370",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1091,
+      "rows_total": 1796,
       "ok": true
     },
     {
-      "code": "152380",
+      "code": "156080",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3599,
+      "rows_total": 3405,
       "ok": true
     },
     {
-      "code": "298340",
+      "code": "091160",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1946,
+      "rows_total": 4127,
       "ok": true
     },
     {
-      "code": "0061Z0",
+      "code": "161510",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 347,
+      "rows_total": 3465,
       "ok": true
     },
     {
-      "code": "273130",
+      "code": "102780",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 4127,
+      "ok": true
+    },
+    {
+      "code": "395160",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1278,
+      "ok": true
+    },
+    {
+      "code": "466920",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 761,
+      "ok": true
+    },
+    {
+      "code": "305720",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1985,
+      "ok": true
+    },
+    {
+      "code": "449450",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 929,
+      "ok": true
+    },
+    {
+      "code": "487240",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 576,
+      "ok": true
+    },
+    {
+      "code": "395270",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1278,
+      "ok": true
+    },
+    {
+      "code": "315930",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1900,
+      "ok": true
+    },
+    {
+      "code": "305540",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1985,
+      "ok": true
+    },
+    {
+      "code": "494670",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 509,
+      "ok": true
+    },
+    {
+      "code": "445290",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 965,
+      "ok": true
+    },
+    {
+      "code": "455850",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 854,
+      "ok": true
+    },
+    {
+      "code": "139260",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3814,
+      "ok": true
+    },
+    {
+      "code": "466940",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 755,
+      "ok": true
+    },
+    {
+      "code": "462010",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 809,
+      "ok": true
+    },
+    {
+      "code": "463250",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 803,
+      "ok": true
+    },
+    {
+      "code": "434730",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1060,
+      "ok": true
+    },
+    {
+      "code": "091180",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 4127,
+      "ok": true
+    },
+    {
+      "code": "091170",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 4128,
+      "ok": true
+    },
+    {
+      "code": "139230",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3801,
+      "ok": true
+    },
+    {
+      "code": "325010",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1812,
+      "ok": true
+    },
+    {
+      "code": "363580",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1486,
+      "ok": true
+    },
+    {
+      "code": "139270",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3779,
+      "ok": true
+    },
+    {
+      "code": "139220",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3798,
+      "ok": true
+    },
+    {
+      "code": "227540",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2707,
+      "ok": true
+    },
+    {
+      "code": "139250",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3801,
+      "ok": true
+    },
+    {
+      "code": "174350",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3264,
+      "ok": true
+    },
+    {
+      "code": "147970",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3645,
+      "ok": true
+    },
+    {
+      "code": "227550",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2699,
+      "ok": true
+    },
+    {
+      "code": "227570",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2703,
+      "ok": true
+    },
+    {
+      "code": "315270",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1905,
+      "ok": true
+    },
+    {
+      "code": "139240",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3757,
+      "ok": true
+    },
+    {
+      "code": "139290",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3807,
+      "ok": true
+    },
+    {
+      "code": "227560",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2705,
+      "ok": true
+    },
+    {
+      "code": "459580",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 828,
+      "ok": true
+    },
+    {
+      "code": "423160",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1100,
+      "ok": true
+    },
+    {
+      "code": "488770",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 556,
+      "ok": true
+    },
+    {
+      "code": "455890",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 846,
+      "ok": true
+    },
+    {
+      "code": "469830",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 739,
+      "ok": true
+    },
+    {
+      "code": "456610",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 846,
+      "ok": true
+    },
+    {
+      "code": "153130",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3592,
+      "ok": true
+    },
+    {
+      "code": "196230",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2980,
+      "ok": true
+    },
+    {
+      "code": "455960",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 841,
+      "ok": true
+    },
+    {
+      "code": "468370",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 753,
+      "ok": true
+    },
+    {
+      "code": "430500",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1078,
+      "ok": true
+    },
+    {
+      "code": "157450",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3535,
+      "ok": true
+    },
+    {
+      "code": "114260",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 4129,
+      "ok": true
+    },
+    {
+      "code": "148070",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3677,
+      "ok": true
+    },
+    {
+      "code": "439870",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1021,
+      "ok": true
+    },
+    {
+      "code": "302190",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2021,
+      "ok": true
+    },
+    {
+      "code": "272560",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 2273,
       "ok": true
     },
     {
+      "code": "451530",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 912,
+      "ok": true
+    },
+    {
+      "code": "114100",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 4106,
+      "ok": true
+    },
+    {
+      "code": "426150",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1092,
+      "ok": true
+    },
+    {
+      "code": "298340",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1947,
+      "ok": true
+    },
+    {
+      "code": "152380",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 3600,
+      "ok": true
+    },
+    {
+      "code": "273130",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 2274,
+      "ok": true
+    },
+    {
       "code": "385540",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1324,
+      "rows_total": 1325,
+      "ok": true
+    },
+    {
+      "code": "0061Z0",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 348,
       "ok": true
     },
     {
       "code": "451540",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 911,
+      "rows_total": 912,
       "ok": true
     },
     {
       "code": "438330",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1020,
+      "rows_total": 1021,
       "ok": true
     },
     {
       "code": "0016X0",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 431,
+      "rows_total": 432,
       "ok": true
     },
     {
       "code": "363570",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1467,
+      "rows_total": 1468,
       "ok": true
     },
     {
       "code": "278620",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2209,
+      "rows_total": 2210,
+      "ok": true
+    },
+    {
+      "code": "453850",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 885,
       "ok": true
     },
     {
       "code": "336160",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1710,
+      "rows_total": 1711,
+      "ok": true
+    },
+    {
+      "code": "458250",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 833,
       "ok": true
     },
     {
@@ -1201,116 +1215,95 @@
       "code": "484790",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 590,
-      "ok": true
-    },
-    {
-      "code": "458250",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 832,
-      "ok": true
-    },
-    {
-      "code": "453850",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 884,
-      "ok": true
-    },
-    {
-      "code": "329750",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1775,
+      "rows_total": 591,
       "ok": true
     },
     {
       "code": "472870",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 704,
+      "rows_total": 705,
+      "ok": true
+    },
+    {
+      "code": "329750",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1776,
       "ok": true
     },
     {
       "code": "476760",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 656,
+      "rows_total": 657,
       "ok": true
     },
     {
       "code": "305080",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1992,
+      "rows_total": 1993,
       "ok": true
     },
     {
       "code": "308620",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 1961,
+      "rows_total": 1962,
       "ok": true
     },
     {
       "code": "476750",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 655,
+      "rows_total": 656,
       "ok": true
     },
     {
       "code": "489000",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 550,
+      "rows_total": 551,
       "ok": true
     },
     {
       "code": "267440",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 2317,
+      "rows_total": 2318,
       "ok": true
     },
     {
       "code": "458260",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 833,
+      "rows_total": 834,
       "ok": true
     },
     {
       "code": "468380",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 752,
+      "rows_total": 753,
       "ok": true
     },
     {
       "code": "455660",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 859,
+      "rows_total": 860,
       "ok": true
     },
     {
       "code": "468630",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 752,
+      "rows_total": 753,
       "ok": true
     },
     {
       "code": "332620",
-      "source": "yfinance",
-      "rows_new": 1,
-      "rows_total": 1756,
-      "ok": true
-    },
-    {
-      "code": "332610",
       "source": "yfinance",
       "rows_new": 1,
       "rows_total": 1757,
@@ -1320,7 +1313,14 @@
       "code": "182490",
       "source": "yfinance",
       "rows_new": 1,
-      "rows_total": 3006,
+      "rows_total": 3007,
+      "ok": true
+    },
+    {
+      "code": "332610",
+      "source": "yfinance",
+      "rows_new": 1,
+      "rows_total": 1758,
       "ok": true
     }
   ]
